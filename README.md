@@ -31,4 +31,6 @@ pyim-wbdict 是 pyim 的一个五笔词库包。
 3.  在emacs配置文件中（比如: ~/.emacs）添加如下代码：
 
         (require 'pyim-wbdict)
-        (pyim-wbdict-v98-enable)
+        (pyim-wbdict-v98-enable)     ;; v98
+     or
+        (pyim-wbdict-freeime-enable) ;; v86

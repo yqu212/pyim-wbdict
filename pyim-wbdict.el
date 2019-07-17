@@ -64,6 +64,19 @@
 (define-obsolete-function-alias 'pyim-wbdict-gbk-enable 'pyim-wbdict-v98-enable)
 (define-obsolete-function-alias 'pyim-wbdict-gb2312-enable 'pyim-wbdict-v98-enable)
 
+;;;###autoload
+(defun pyim-wbdict-freeime-enable ()
+  "Add wubi dict (86 version) to pyim."
+  (interactive)
+  (let* ((dir (file-name-directory
+               (locate-library "pyim-wbdict.el")))
+         (file (concat dir "pyim-wbdict-freeime.pyim")))
+    (when (file-exists-p file)
+      (if (featurep 'pyim)
+          (pyim-extra-dicts-add-dict
+           `(:name "wbdict-freeime-elpa" :file ,file :elpa t))
+        (message "pyim 没有安装，pyim-wbdict 启用失败。")))))
+
 ;; * Footer
 
 (provide 'pyim-wbdict)
